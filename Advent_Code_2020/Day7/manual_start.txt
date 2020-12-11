@@ -1,0 +1,17 @@
+shiny gold bags contain 1 plaid tan bag, 3 light beige bags, 1 posh brown bag.
+
+lvl2
+plaid tan bags contain no other bags.
+light beige bags contain 5 clear purple bags, 2 plaid teal bags.
+posh brown bags contain 5 plaid fuchsia bags, 1 clear turquoise bag, 5 drab white bags.
+
+lvl3:pt1:
+clear purple bags contain 4 muted bronze bags, 3 shiny silver bags, 4 pale salmon bags, 3 plaid fuchsia bags.
+plaid teal bags contain no other bags.
+lvl3:pt2:
+plaid fuchsia bags contain no other bags.
+clear turquoise bags contain 4 pale black bags, 5 plaid purple bags, 4 bright gold bags.
+drab white bags contain 5 plaid teal bags, 3 shiny silver bags, 3 wavy plum bags, 1 bright white bag.
+
+
+testcases shiny silver = 3*5*3 + 3*5*1 (drab white)  (45) = 60
