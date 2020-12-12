@@ -1,6 +1,6 @@
 import numpy as np
 
-f = open('input.txt','r')
+f = open('../Input_files/11.txt','r')
 input = f.readlines()
 input = [line.strip() for line in input]
 f.close()

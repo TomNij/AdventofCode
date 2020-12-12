@@ -1,4 +1,4 @@
-f = open('input.txt','r')
+f = open('../Input_files/11.txt')
 lines = f.readlines()
 lines = [line.strip() for line in lines]
 f.close()
