@@ -34,10 +34,9 @@ for wait, bus_nr in bus_options:
     next_wait,next_bus = bus_options[ind+1]
     while check_val % next_bus != (next_bus - (next_wait % next_bus)) % next_bus:
         check_val += check_step
-        print(f"check_val: {check_val},step = {check_step}")
+        #print(f"check_val: {check_val},step = {check_step}")
         if check_val % next_bus == (next_bus - (next_wait % next_bus)) % next_bus:
             ind += 1
-            print(f"next_bus: {next_bus}")
-            if ind == len(bus_options)-1:
-                print(f"Part2: {check_val}")
-                break
+    if next_bus == last_bus:
+        print(f"Part2: {check_val}")
+        break
