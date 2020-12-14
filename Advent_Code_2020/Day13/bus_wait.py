@@ -29,10 +29,13 @@ start_wait,start_busnr = bus_options[0]
 check_val = start_busnr - start_wait
 ind = 0
 check_step = 1
+steps = 0
 for wait, bus_nr in bus_options:
     check_step *= bus_nr
     next_wait,next_bus = bus_options[ind+1]
     while check_val % next_bus != (next_bus - (next_wait % next_bus)) % next_bus:
+        print(f"Step: {steps}: check_val: {check_val}")
+        steps += 1
         check_val += check_step
         #print(f"check_val: {check_val},step = {check_step}")
         if check_val % next_bus == (next_bus - (next_wait % next_bus)) % next_bus:
