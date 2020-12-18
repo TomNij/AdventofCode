@@ -29,7 +29,7 @@ for exersize in input:
         additions = [exersize[left:right for left,right in zip(left_addition,right_addition) ]
         sub_ex = exersize[right_par_open+1:right_par_close]
         sub_ans = solve_no_par(sub_ex.split(' '))
-        exersize = exersize[0:right_par_open]+str(sub_ans)+ exersize[right_par_close+1:]
+        exersize = exersize[0:right_par_open]+str(sub_ans)+ exersize[right_par_close+1:] asdf
 
     exersize = exersize.split(' ')
     tot_ans += solve_no_par(exersize)
