@@ -1,0 +1,10 @@
+top_rev = puzzle[1]
+bottom = puzzle[-1]
+left_rev = [puzzle[n][0] for n in range(1, len(puzzle))]
+left_rev = ''.join(left_rev)
+right = [puzzle[n][-1] for n in range(1, len(puzzle))]
+right = ''.join(right)
+top = top_rev[::-1]
+b_rev = bottom[:: -1]
+left = left_rev[::-1]
+r_rev = right[::-1]
