@@ -99,6 +99,8 @@ flip_r_dict = {0:0,
                2:2,
                3:1}
 
+#alternative way finding corners: x in (xmin,xmax) and y in (ymin,ymax)
+#finding all edges x in (xmin,xmax) or y in (ymin,ymax)
 puzzle_solution = {(0,0,corners[0]): [puzzle_dict[corners[0]][0],puzzle_dict[corners[0]][2]]}
 x,y = 0,0
 id = corners[0]
@@ -114,7 +116,6 @@ while piece_check:
                     for orient2,side2 in enumerate(side_set):
                         if side == side2:
                             #print(f"Match {id}, side: {orient}, with {key} side {flip},{orient2}.")
-
                             xn = x + xy_delta[orient][0] #update x pos of piece with the delta
                             yn = y + xy_delta[orient][1]
                             puzzle_piece = puzzle_dict[key][2] #3rd element is the actual puzzle
