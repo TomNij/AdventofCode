@@ -1,4 +1,5 @@
 import itertools
+import numpy as np
 
 f = open('input.txt','r')
 input = f.readlines()
@@ -22,3 +23,17 @@ print(sumvals[0])
 for nums in itertools.combinations(input, 3):
     if sum(nums) == 2020:
         print(nums[0] * nums[1] * nums[2])
+
+data = [int(i) for i in input]
+inp_len = len(data)
+data_array = np.zeros((inp_len,inp_len,inp_len))
+for x in range(np.shape(data_array)[0]):
+    for y in range(np.shape(data_array)[1]):
+        for z in range(np.shape(data_array)[2]):
+            data_array[x,y,z] = data[x]+ data[y]+data[z]
+indices = np.where(data_array == 2020)
+indices = set(indices[0])
+prod = 1
+for ind in indices:
+    prod *= data[ind]
+print(prod)
