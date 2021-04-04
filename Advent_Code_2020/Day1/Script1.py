@@ -37,3 +37,15 @@ prod = 1
 for ind in indices:
     prod *= data[ind]
 print(prod)
+
+print('New method')
+numbers = data
+for num1 in numbers:
+    for num2 in numbers:
+        if num1 + num2 > 2020:
+            continue
+        for num3 in numbers:
+            if num1 + num2 + num3 > 2020:
+                continue
+            if num1 + num2 + num3 == 2020:
+                print(num1 * num2 * num3)
