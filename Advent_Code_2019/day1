@@ -1,0 +1,18 @@
+import numpy as np
+with open('./Input_files/1.txt') as file:
+    input = file.readlines()
+
+ans1 = sum(map(lambda x:np.floor(int(x)/3 - 2),input))
+print(ans1)
+
+#recursive fuel calc:
+def recursive_fuel(mass):
+    mass = int(mass)
+    if np.floor(mass/3)-2 <= 0:
+        return 0
+    else:
+        add_mass = np.floor(mass/3)-2
+        return(add_mass + recursive_fuel(add_mass))
+
+ans2 = sum(map(recursive_fuel,input))
+print(ans2)
