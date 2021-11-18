@@ -1,0 +1,3 @@
+import numpy as np
+with open('./Input_files/1.txt') as file:
+    input = file.readlines()
