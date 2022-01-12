@@ -5,37 +5,36 @@ with open('../Input_files/14.txt') as file:
 
 template,rules = input.split('\n\n')
 rules = rules.split('\n')
-rule_dict = {}
-for rule in rules:
-    pattern,insert = rule.split(' -> ')
-    rule_dict[pattern] = insert
+# rule_dict = {}
+# for rule in rules:
+#     pattern,insert = rule.split(' -> ')
+#     rule_dict[pattern] = insert
 
 couple_dict = {}
 for rule in rules:
-    pattern,insert = rule.split(' -> ')
+    pattern, insert = rule.split(' -> ')
     couple_dict[pattern] = [pattern[0]+insert,insert+pattern[1]]
 in_str = template
 
 #pt1 approach
-for step in range(10):
-    n_insert = 0
-    out_str = in_str
-    for ind in range(len(in_str)):
-        pattern = in_str[ind:ind+2]
-        if pattern in rule_dict.keys():
-            #pattern[0] + rule_dict[pattern] + pattern[1]
-            out_str = out_str[:2*n_insert+1] + rule_dict[pattern] + in_str[ind+1:]
-            n_insert += 1
-    in_str = out_str
-    if step == 9:
-        count_list = [out_str.count(letter) for letter in set(out_str)]
-        count_list.sort()
-        print(f"Part 1: {count_list[-1] - count_list[0]}")
+# for step in range(10):
+#     n_insert = 0
+#     out_str = in_str
+#     for ind in range(len(in_str)):
+#         pattern = in_str[ind:ind+2]
+#         if pattern in rule_dict.keys():
+#             #pattern[0] + rule_dict[pattern] + pattern[1]
+#             out_str = out_str[:2*n_insert+1] + rule_dict[pattern] + in_str[ind+1:]
+#             n_insert += 1
+#     in_str = out_str
+#     if step == 9:
+#         count_list = [out_str.count(letter) for letter in set(out_str)]
+#         count_list.sort()
+#         print(f"Part 1: {count_list[-1] - count_list[0]}")
 
 #pt2 approach
 def dict_to_counts(couple_count,first,last):
-    letters = set(''.join(couple_count.keys()))
-    letter_value = dict.fromkeys(letters,0)
+    letter_value = Counter()
     for key,val in couple_count.items():
         #we are counting the first key (val-1) times twice and once correct, similar for last key
         if key == first:

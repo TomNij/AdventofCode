@@ -21,7 +21,7 @@ dots,instructions = input.split('\n\n')
 dots = set(parse(line) for line in dots.split('\n'))
 step = 1
 for instr in instructions.split('\n'):
-    pattern = 'fold along ([]xy])=(\d+)'
+    pattern = 'fold along ([xy])=(\d+)'
     dir,n = re.match(pattern,instr).groups()
     n = int(n)
     dots = set(map(fold,repeat(dir),repeat(n),dots))
@@ -32,3 +32,4 @@ for instr in instructions.split('\n'):
 x, y = zip(*list(dots))
 y2 = tuple(-yel for yel in y)
 plt.scatter(x,y2)
+plt.show()
