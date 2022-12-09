@@ -1,10 +1,7 @@
 from operator import attrgetter
 from itertools import product
 import numpy as np
-
 from time import time
-
-
 
 with open('../Input_files/15.txt') as file:
     input = file.readlines()
@@ -15,14 +12,6 @@ def get_neighbors(coord,diag = True):
     else:
         direct_neighbors = [(0,1),(1,0),(-1,0),(0,-1)]
         return [(coord[0] + dx,coord[1] + dy) for dx,dy in direct_neighbors]
-
-
-# Check if a neighbor should be added to open list
-def add_to_open(waiting, neighbor):
-    for node in waiting:
-        if (neighbor == node and neighbor.f >= node.f):
-            return False
-    return True
 
 def timer_func(func):
     # This function shows the execution time of
@@ -104,7 +93,7 @@ def search_cave(cave):
 
         #all neighbors checked and added/updated to waiting, actual can go to discard pile
         node_dict[actual.pos].status = 'discard'
-        #discard.append(actual)
+        #sort waiting list by f-value
         waiting.sort(key=attrgetter('f'))
     #after quiting while loop the first entry is the finish node and g is the value we want.
     return waiting[0].g
@@ -113,8 +102,7 @@ def search_cave(cave):
 cave = [list(map(int,line.strip())) for line in input]
 
 cave = np.array(cave)
-pt1 = search_cave(cave)
-print(f"Part 1:{pt1}")
+print(f"Part 1:{search_cave(cave)}")
 
 cave2 = cave
 #append to right
@@ -124,5 +112,4 @@ cavewide = cave2
 for incr in range(1, 5):
     cave2 = np.vstack((cave2, (cavewide + incr - 1) % 9 + 1))
 
-pt2 = search_cave(cave2)
-print(f"Part 2:{pt2}")
+print(f"Part 2:{search_cave(cave2)}")
